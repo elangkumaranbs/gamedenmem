@@ -144,20 +144,20 @@ const Home: React.FC = () => {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-6 items-start">
-              <button 
+              <button
                 onClick={() => window.open('https://gamedenbookings.netlify.app/', '_blank')}
-                className="group relative bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white px-12 py-4 rounded-full font-bold text-lg transition-all duration-300 transform hover:scale-105 shadow-2xl shadow-green-500/30 overflow-hidden premium-text"
+                className="group relative bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white px-12 py-5 rounded-full font-bold text-xl transition-all duration-300 transform hover:scale-110 shadow-2xl shadow-green-500/40 overflow-hidden premium-text btn-ripple hover:shadow-green-500/60"
               >
                 <span className="relative z-10 flex items-center">
                   Book Your Slot
-                  <ArrowRight className="ml-3 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                  <ArrowRight className="ml-3 h-6 w-6 group-hover:translate-x-2 transition-transform duration-300" />
                 </span>
                 <div className="absolute inset-0 bg-gradient-to-r from-green-400 to-green-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </button>
-              
-              <div className="flex items-center space-x-2 text-green-400">
-                <div className="w-3 h-3 bg-green-400 rounded-full animate-pulse"></div>
-                <span className="font-medium premium-text">5 slots available today</span>
+
+              <div className="flex items-center space-x-3 text-green-400 bg-green-500/10 px-5 py-3 rounded-full border border-green-500/30">
+                <div className="w-3 h-3 bg-green-400 rounded-full animate-pulse shadow-lg shadow-green-500/50"></div>
+                <span className="font-semibold premium-text text-base">5 slots available today</span>
               </div>
             </div>
           </div>

@@ -9,7 +9,7 @@ interface MembershipCardProps {
 const MembershipCard: React.FC<MembershipCardProps> = ({ cardNumber = '____', showBack = false }) => {
   if (showBack) {
     return (
-      <div className="w-full max-w-md mx-auto aspect-[1.586] rounded-xl overflow-hidden relative gaming-gradient">
+      <div className="w-full max-w-md mx-auto aspect-[1.586] rounded-2xl overflow-hidden relative gaming-gradient shadow-2xl transform transition-all hover:scale-105 hover:shadow-white/20 card-hover">
         <img 
           src="https://images.pexels.com/photos/2387793/pexels-photo-2387793.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" 
           alt="Card Background" 
@@ -17,7 +17,7 @@ const MembershipCard: React.FC<MembershipCardProps> = ({ cardNumber = '____', sh
         />
         <div className="relative h-full flex flex-col justify-between p-6 text-white">
           <div className="text-center">
-            <h2 className="text-4xl font-bold mb-4 cyber-text">GAME DEN</h2>
+            <h2 className="text-4xl font-bold mb-4 cyber-text hero-text tracking-wider">GAME DEN</h2>
             <div className="w-24 h-24 mx-auto gaming-gradient rounded-lg p-2">
               <div className="w-full h-full bg-white/90 rounded flex items-center justify-center">
                 <QrCode className="w-16 h-16 text-indigo-600" />
@@ -41,7 +41,7 @@ const MembershipCard: React.FC<MembershipCardProps> = ({ cardNumber = '____', sh
   }
 
   return (
-    <div className="w-full max-w-md mx-auto aspect-[1.586] rounded-xl overflow-hidden relative gaming-gradient">
+    <div className="w-full max-w-md mx-auto aspect-[1.586] rounded-2xl overflow-hidden relative gaming-gradient shadow-2xl transform transition-all hover:scale-105 hover:shadow-white/20 card-hover">
       <img 
         src="https://images.pexels.com/photos/2387793/pexels-photo-2387793.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" 
         alt="Card Background" 
@@ -49,7 +49,7 @@ const MembershipCard: React.FC<MembershipCardProps> = ({ cardNumber = '____', sh
       />
       <div className="relative h-full flex flex-col justify-between p-6 text-white">
         <div>
-          <h2 className="text-4xl font-bold mb-6 text-center animate-pulse-glow">LOYALTY PASS</h2>
+          <h2 className="text-4xl font-bold mb-6 text-center animate-pulse-glow hero-text tracking-wider">LOYALTY PASS</h2>
           <div className="space-y-4">
             <div>
               <p className="text-sm opacity-80">CARD NO:</p>

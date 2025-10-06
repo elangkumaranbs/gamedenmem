@@ -741,8 +741,33 @@ html {
 /* Modal Overlay and Content Visibility */
 .fixed.inset-0.bg-black.bg-opacity-50 {
   z-index: 9999 !important;
-  background-color: rgba(0, 0, 0, 0.75) !important;
-  backdrop-filter: blur(4px);
+  background-color: rgba(0, 0, 0, 0.85) !important;
+  backdrop-filter: blur(8px);
+  animation: fadeIn 0.2s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.2s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.animate-slideUp {
+  animation: slideUp 0.3s ease-out;
 }
 
 /* Modal Content Containers */
@@ -758,8 +783,9 @@ html {
 
 /* Modal Headers */
 .bg-indigo-600 {
-  background-color: #4f46e5 !important;
+  background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%) !important;
   color: white !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
 }
 
 /* Modal Form Labels and Text */
@@ -846,4 +872,104 @@ html {
 
 .border-green-500 {
   border-color: #10b981 !important;
+}
+
+/* Accent platinum */
+.accent-platinum {
+  background: linear-gradient(135deg, #F5F5F5, #FFFFFF, #E8E8E8);
+  color: #000000;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+/* Enhanced Card Effects */
+.card-hover {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-hover:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 30px 60px rgba(255, 255, 255, 0.2);
+}
+
+/* Enhanced Input Styling */
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.1);
+}
+
+/* Enhanced Table Styling */
+table tbody tr {
+  transition: all 0.2s ease;
+}
+
+table tbody tr:hover {
+  background: rgba(255, 255, 255, 0.08) !important;
+  transform: scale(1.01);
+}
+
+/* Badge Animations */
+.badge-pulse {
+  animation: badge-pulse 2s ease-in-out infinite;
+}
+
+@keyframes badge-pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+/* Loading Spinner Enhancement */
+.spinner-glow {
+  filter: drop-shadow(0 0 8px currentColor);
+}
+
+/* Button Ripple Effect */
+.btn-ripple {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-ripple::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.btn-ripple:active::after {
+  width: 300px;
+  height: 300px;
+}
+
+/* Status Badge Colors */
+.status-active {
+  background: linear-gradient(135deg, #dcfce7, #86efac);
+  color: #166534;
+  font-weight: 600;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  box-shadow: 0 2px 8px rgba(34, 197, 94, 0.3);
+}
+
+.status-expiring {
+  background: linear-gradient(135deg, #fef3c7, #fde047);
+  color: #854d0e;
+  font-weight: 600;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  box-shadow: 0 2px 8px rgba(234, 179, 8, 0.3);
+}
+
+.status-expired {
+  background: linear-gradient(135deg, #fee2e2, #fca5a5);
+  color: #991b1b;
+  font-weight: 600;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  box-shadow: 0 2px 8px rgba(239, 68, 68, 0.3);
 }

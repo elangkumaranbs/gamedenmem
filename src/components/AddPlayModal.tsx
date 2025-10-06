@@ -97,10 +97,13 @@ const AddPlayModal: React.FC<AddPlayModalProps> = ({ member, onClose, onSave }) 
   };
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-      <div className="bg-white rounded-lg shadow-lg w-full max-w-md overflow-hidden">
-        <div className="bg-indigo-600 px-6 py-4 flex justify-between items-center">
-          <h2 className="text-lg font-bold text-white">Add Play Record</h2>
+    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 animate-fadeIn">
+      <div className="bg-white rounded-2xl shadow-2xl w-full max-w-md overflow-hidden transform transition-all animate-slideUp">
+        <div className="bg-indigo-600 px-6 py-5 flex justify-between items-center">
+          <h2 className="text-xl font-bold text-white hero-text flex items-center">
+            <Calendar className="h-5 w-5 mr-2" />
+            Add Play Record
+          </h2>
           <button 
             onClick={onClose}
             className="text-white hover:text-indigo-100"

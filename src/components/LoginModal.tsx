@@ -159,8 +159,8 @@ const LoginModal: React.FC<LoginModalProps> = ({ onClose }) => {
   // Show Supabase connection prompt if not connected
   if (!isSupabaseConnected) {
     return (
-      <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-        <div className="bg-white rounded-lg shadow-lg w-full max-w-md overflow-hidden">
+      <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 animate-fadeIn">
+        <div className="bg-white rounded-2xl shadow-2xl w-full max-w-md overflow-hidden transform transition-all animate-slideUp">
           <div className="bg-gradient-to-r from-purple-600 to-pink-600 px-6 py-4 flex justify-between items-center">
             <h2 className="text-lg font-bold text-white flex items-center">
               <AlertCircle className="h-5 w-5 mr-2" />
@@ -230,8 +230,8 @@ const LoginModal: React.FC<LoginModalProps> = ({ onClose }) => {
   }
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-      <div className="bg-white rounded-lg shadow-lg w-full max-w-md overflow-hidden">
+    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 animate-fadeIn">
+      <div className="bg-white rounded-2xl shadow-2xl w-full max-w-md overflow-hidden transform transition-all animate-slideUp">
         <div className="bg-gradient-to-r from-gray-800 to-black px-6 py-4 flex justify-between items-center">
           <h2 className="text-lg font-bold text-white flex items-center">
             <LogIn className="h-5 w-5 mr-2" />

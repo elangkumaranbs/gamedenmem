@@ -245,21 +245,22 @@ Thank you for joining us!
   };
 
   return (
-    <div className="max-w-4xl mx-auto space-y-8">
-      <div className="glass-effect rounded-lg shadow-md overflow-hidden neon-border">
-        <div className="gaming-gradient px-6 py-4">
-          <h1 className="text-xl font-bold text-white hero-text">Create New Member</h1>
+    <div className="max-w-5xl mx-auto space-y-10 animate-fadeIn">
+      <div className="glass-effect rounded-2xl shadow-2xl overflow-hidden neon-border card-hover">
+        <div className="gaming-gradient px-8 py-6">
+          <h1 className="text-3xl font-bold text-white hero-text animate-pulse-glow">Create New Member</h1>
+          <p className="text-gray-300 mt-2 premium-text">Fill in the details to create a new gaming membership</p>
         </div>
         
-        <form onSubmit={handleSubmit} className="p-6">
-          <div className="space-y-6">
-            <div>
-              <label htmlFor="full_name" className="block text-sm font-medium text-white mb-1 premium-text">
+        <form onSubmit={handleSubmit} className="p-8">
+          <div className="space-y-7">
+            <div className="group">
+              <label htmlFor="full_name" className="block text-sm font-semibold text-white mb-2 premium-text tracking-wide">
                 Full Name
               </label>
-              <div className="relative rounded-md shadow-sm">
+              <div className="relative rounded-lg shadow-sm">
                 <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                  <User className="h-5 w-5 text-gray-400" />
+                  <User className="h-5 w-5 text-gray-400 group-hover:text-gray-300 transition-colors" />
                 </div>
                 <input
                   type="text"
@@ -267,14 +268,14 @@ Thank you for joining us!
                   name="full_name"
                   value={formData.full_name}
                   onChange={handleChange}
-                  className={`block w-full pl-10 pr-3 py-2 bg-white/10 border rounded-md focus:ring-white focus:border-white text-white premium-text ${
-                    errors.full_name ? 'border-red-500' : 'border-white/30'
+                  className={`block w-full pl-10 pr-3 py-3 bg-white/10 border rounded-lg focus:ring-2 focus:ring-white/50 focus:border-white text-white premium-text transition-all ${
+                    errors.full_name ? 'border-red-500' : 'border-white/30 hover:border-white/50'
                   }`}
                   placeholder="John Doe"
                 />
               </div>
               {errors.full_name && (
-                <p className="mt-1 text-sm text-red-500 premium-text">{errors.full_name}</p>
+                <p className="mt-2 text-sm text-red-400 premium-text animate-slideUp">{errors.full_name}</p>
               )}
             </div>
 
@@ -395,20 +396,20 @@ Thank you for joining us!
               )}
             </div>
 
-            <div className="flex justify-end">
+            <div className="flex justify-end pt-2">
               <button
                 type="submit"
                 disabled={isLoading || !isPhoneVerified}
-                className="inline-flex items-center px-6 py-3 border border-transparent text-sm font-medium rounded-md text-black accent-silver hover:accent-platinum focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 hover-scale premium-text"
+                className="inline-flex items-center px-8 py-4 border border-transparent text-base font-bold rounded-xl text-black accent-silver hover:accent-platinum focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-white/30 premium-text btn-ripple"
               >
                 {isLoading ? (
                   <>
-                    <Loader2 className="animate-spin h-5 w-4 mr-2" />
+                    <Loader2 className="animate-spin h-6 w-6 mr-2 spinner-glow" />
                     Creating...
                   </>
                 ) : (
                   <>
-                    <Save className="h-5 w-5 mr-2" />
+                    <Save className="h-6 w-6 mr-2" />
                     Create Member
                   </>
                 )}

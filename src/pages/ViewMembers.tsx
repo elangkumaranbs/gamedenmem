@@ -210,11 +210,11 @@ https://www.instagram.com/game_den__?igsh=MWk5eDhqenE4bGpldg%3D%3D&utm_source=qr
     const daysLeft = Math.ceil((endDate.getTime() - now.getTime()) / (1000 * 60 * 60 * 24));
 
     if (daysLeft < 0) {
-      return { status: 'expired', text: 'Expired', className: 'bg-red-100 text-red-800' };
+      return { status: 'expired', text: 'Expired', className: 'status-expired badge-pulse' };
     } else if (daysLeft <= 30) {
-      return { status: 'expiring', text: `${daysLeft} days left`, className: 'bg-yellow-100 text-yellow-800' };
+      return { status: 'expiring', text: `${daysLeft} days left`, className: 'status-expiring badge-pulse' };
     } else {
-      return { status: 'active', text: `${daysLeft} days left`, className: 'bg-green-100 text-green-800' };
+      return { status: 'active', text: `${daysLeft} days left`, className: 'status-active' };
     }
   };
 
@@ -341,56 +341,56 @@ https://www.instagram.com/game_den__?igsh=MWk5eDhqenE4bGpldg%3D%3D&utm_source=qr
   }
 
   return (
-    <div className="space-y-6">
-      <div className="glass-effect rounded-lg shadow-lg overflow-hidden neon-border">
-        <div className="gaming-gradient px-6 py-4 flex justify-between items-center">
+    <div className="space-y-6 animate-fadeIn">
+      <div className="glass-effect rounded-2xl shadow-2xl overflow-hidden neon-border card-hover">
+        <div className="gaming-gradient px-8 py-6 flex justify-between items-center">
           <div>
-            <h1 className="text-xl font-bold text-white animate-pulse-glow hero-text">Member List</h1>
+            <h1 className="text-3xl font-bold text-white animate-pulse-glow hero-text">Member List</h1>
             <p className="text-sm text-gray-300 mt-1 premium-text">
               {members.length} total member{members.length !== 1 ? 's' : ''} • {filteredMembers.length} displayed
             </p>
           </div>
-          <div className="flex space-x-3">
+          <div className="flex space-x-4">
             <button
               onClick={exportToExcel}
               disabled={isExporting || members.length === 0}
-              className="glass-effect hover:bg-green-600/20 text-white px-4 py-2 rounded-lg font-medium flex items-center transition-all duration-300 hover-scale premium-text border border-green-500/30 hover:border-green-500/50 disabled:opacity-50 disabled:cursor-not-allowed"
+              className="glass-effect hover:bg-green-600/20 text-white px-6 py-3 rounded-xl font-semibold flex items-center transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-green-500/30 premium-text border border-green-500/30 hover:border-green-500/60 disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {isExporting ? (
-                <Loader2 className="h-4 w-4 mr-2 animate-spin" />
+                <Loader2 className="h-5 w-5 mr-2 animate-spin spinner-glow" />
               ) : (
-                <Download className="h-4 w-4 mr-2" />
+                <Download className="h-5 w-5 mr-2" />
               )}
               {isExporting ? 'Exporting...' : 'Export Excel'}
             </button>
             <button
               onClick={fetchMembers}
-              className="glass-effect hover:bg-white/20 text-white px-4 py-2 rounded-lg font-medium flex items-center transition-all duration-300 hover-scale premium-text"
+              className="glass-effect hover:bg-white/20 text-white px-6 py-3 rounded-xl font-semibold flex items-center transition-all duration-300 hover:scale-105 hover:shadow-lg premium-text border border-white/30 hover:border-white/50"
             >
-              <RefreshCw className="h-4 w-4 mr-2" />
+              <RefreshCw className="h-5 w-5 mr-2" />
               Refresh
             </button>
           </div>
         </div>
         
-        <div className="p-6">
-          <div className="mb-6 relative">
-            <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-              <Search className="h-5 w-5 text-gray-400" />
+        <div className="p-8">
+          <div className="mb-8 relative group">
+            <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+              <Search className="h-5 w-5 text-gray-400 group-hover:text-gray-300 transition-colors" />
             </div>
             <input
               type="text"
-              placeholder="Search members..."
+              placeholder="Search by name, card number, phone, or email..."
               value={searchTerm}
               onChange={handleSearchChange}
-              className="pl-10 pr-4 py-2 w-full bg-white/10 border border-white/30 rounded-md focus:ring-white focus:border-white text-white placeholder-gray-300 premium-text"
+              className="pl-12 pr-4 py-4 w-full bg-white/10 border border-white/30 rounded-xl focus:ring-2 focus:ring-white/50 focus:border-white text-white placeholder-gray-400 premium-text transition-all hover:border-white/50 text-lg"
             />
           </div>
 
           {isLoading ? (
-            <div className="flex justify-center items-center py-10">
-              <Loader2 className="h-8 w-8 text-white animate-spin" />
-              <span className="ml-2 text-gray-300 premium-text">Loading members...</span>
+            <div className="flex flex-col justify-center items-center py-16">
+              <Loader2 className="h-12 w-12 text-white animate-spin spinner-glow mb-4" />
+              <span className="text-lg text-gray-300 premium-text animate-pulse">Loading members...</span>
             </div>
           ) : filteredMembers.length === 0 ? (
             <div className="text-center py-10 text-gray-300">
@@ -503,35 +503,35 @@ https://www.instagram.com/game_den__?igsh=MWk5eDhqenE4bGpldg%3D%3D&utm_source=qr
                           <div className="flex justify-end space-x-2">
                             <button
                               onClick={() => setViewHistoryMember(member)}
-                              className="text-white hover:text-gray-300 bg-white/20 p-1.5 rounded-md transition-colors"
+                              className="text-white hover:text-gray-200 bg-white/20 hover:bg-white/30 p-2 rounded-lg transition-all hover:scale-110 hover:shadow-lg"
                               title="View History"
                             >
                               <History className="h-4 w-4" />
                             </button>
                             <button
                               onClick={() => setAddPlayMember(member)}
-                              className="text-white hover:text-gray-300 bg-white/20 p-1.5 rounded-md transition-colors"
+                              className="text-white hover:text-gray-200 bg-white/20 hover:bg-white/30 p-2 rounded-lg transition-all hover:scale-110 hover:shadow-lg"
                               title="Add Play"
                             >
                               <CalendarDays className="h-4 w-4" />
                             </button>
                             <button
                               onClick={() => setResettingMember(member)}
-                              className="text-blue-400 hover:text-blue-300 bg-blue-900/30 p-1.5 rounded-md transition-colors"
+                              className="text-blue-400 hover:text-blue-300 bg-blue-900/30 hover:bg-blue-800/40 p-2 rounded-lg transition-all hover:scale-110 hover:shadow-lg hover:shadow-blue-500/30"
                               title="Reset Validity"
                             >
                               <RefreshCw className="h-4 w-4" />
                             </button>
                             <button
                               onClick={() => setEditingMember(member)}
-                              className="text-blue-400 hover:text-blue-300 bg-blue-900/30 p-1.5 rounded-md transition-colors"
+                              className="text-blue-400 hover:text-blue-300 bg-blue-900/30 hover:bg-blue-800/40 p-2 rounded-lg transition-all hover:scale-110 hover:shadow-lg hover:shadow-blue-500/30"
                               title="Edit Member"
                             >
                               <Edit className="h-4 w-4" />
                             </button>
                             <button
                               onClick={() => setDeletingMember(member)}
-                              className="text-red-400 hover:text-red-300 bg-red-900/30 p-1.5 rounded-md transition-colors"
+                              className="text-red-400 hover:text-red-300 bg-red-900/30 hover:bg-red-800/40 p-2 rounded-lg transition-all hover:scale-110 hover:shadow-lg hover:shadow-red-500/30"
                               title="Delete Member"
                             >
                               <Trash2 className="h-4 w-4" />
