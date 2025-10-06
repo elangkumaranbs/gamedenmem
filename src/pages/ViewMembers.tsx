@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useSupabase } from '../context/SupabaseContext';
-import { Edit, Trash2, Search, ArrowUp, ArrowDown, Loader2, CalendarDays, History, Clock, RefreshCw, Download } from 'lucide-react';
+import { CreditCard as Edit, Trash2, Search, ArrowUp, ArrowDown, Loader2, CalendarDays, History, Clock, RefreshCw, Download } from 'lucide-react';
 import { Member, MemberWithPlayCount } from '../types/member';
 import toast from 'react-hot-toast';
 import EditMemberModal from '../components/EditMemberModal';
